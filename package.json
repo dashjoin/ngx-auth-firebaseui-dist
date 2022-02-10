@@ -1,0 +1,141 @@
+{
+  "name": "ngx-auth-firebaseui",
+  "description": "Open Source Library for Angular Web Apps to integrate a material user interface for firebase authentication",
+  "version": "5.3.0",
+  "homepage": "https://ngx-auth-firebaseui.firebaseapp.com",
+  "author": {
+    "name": "anthonynahas",
+    "url": "https://github.com/anthonynahas"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anthonynahas/ngx-auth-firebaseui.git"
+  },
+  "license": "MIT",
+  "schematics": "./schematics/collection.json",
+  "keywords": [
+    "ng",
+    "library",
+    "angular",
+    "@angular/fire",
+    "firebase",
+    "firebaseui",
+    "firebase auth",
+    "authentication",
+    "firebaseauthentication",
+    "firestore",
+    "material",
+    "material design",
+    "ssr"
+  ],
+  "bugs": {
+    "url": "https://github.com/anthonynahas/ngx-auth-firebaseui/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^13.2.2",
+    "@angular/core": "^13.2.2",
+    "@angular-material-extensions/password-strength": "^9.0.0",
+    "@angular/animations": "^13.2.2",
+    "@angular/cdk": "^13.2.1",
+    "@angular/fire": "^7.2.0",
+    "@angular/flex-layout": "^13.0.0-beta.38",
+    "@angular/forms": "^13.2.2",
+    "@angular/material": "^13.2.1",
+    "@angular/router": "^13.2.2",
+    "firebase": "^9.4.0"
+  },
+  "engines": {
+    "node": ">=10.13"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore(lib): release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": true,
+      "publishPath": "../../dist/ngx-auth-firebaseui"
+    },
+    "publishConfig": {
+      "access": "public"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "../../CHANGELOG.md"
+      }
+    },
+    "hooks": {
+      "before:init": [
+        "npm run clean"
+      ],
+      "after:bump": "echo \"building lib v${version}... \" && npm run build",
+      "before:git:release": "echo \"Updating CHANGELOG.md for v${version} \" && git commit -m \"feat(lib): updating CHANGELOG.md for v${version} \" ../../CHANGELOG.md",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
+      "before:npm": "echo building the library..."
+    }
+  },
+  "greenkeeper": {
+    "ignore": [
+      "@angular/core",
+      "@angular/common",
+      "@angular/compiler",
+      "@angular/platform-server",
+      "@angular/platform-browser",
+      "@angular/platform-browser-dynamic",
+      "@angular/compiler-cli",
+      "webpack",
+      "zone.js",
+      "rxjs",
+      "tslint",
+      "typescript",
+      "awesome-typescript-loader",
+      "codelyzer",
+      "@angular/animations",
+      "@types/jasmine",
+      "conventional-github-releaser",
+      "rollup-plugin-uglify"
+    ]
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "commitplease": {
+    "style": "angular",
+    "types": [
+      "feat",
+      "fix",
+      "docs",
+      "style",
+      "refactor",
+      "perf",
+      "test",
+      "chore",
+      "revert",
+      "demo"
+    ],
+    "scope": "\\S+.*"
+  },
+  "module": "fesm2015/ngx-auth-firebaseui.mjs",
+  "es2020": "fesm2020/ngx-auth-firebaseui.mjs",
+  "esm2020": "esm2020/ngx-auth-firebaseui.mjs",
+  "fesm2020": "fesm2020/ngx-auth-firebaseui.mjs",
+  "fesm2015": "fesm2015/ngx-auth-firebaseui.mjs",
+  "typings": "ngx-auth-firebaseui.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-auth-firebaseui.d.ts",
+      "esm2020": "./esm2020/ngx-auth-firebaseui.mjs",
+      "es2020": "./fesm2020/ngx-auth-firebaseui.mjs",
+      "es2015": "./fesm2015/ngx-auth-firebaseui.mjs",
+      "node": "./fesm2015/ngx-auth-firebaseui.mjs",
+      "default": "./fesm2020/ngx-auth-firebaseui.mjs"
+    }
+  },
+  "sideEffects": false
+}
